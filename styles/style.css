@@ -33,6 +33,7 @@ h3 {
 }
 p {
   font-size: 1.2rem;
+  text-transform: capitalize;
 }
 .btn {
   background-color: transparent;
@@ -143,7 +144,7 @@ p {
   left: 0px;
   z-index: -2;
   filter: blur(200px);
-  opacity: 0.5;
+  opacity: 0.2;
   transform: translate(-50%, -50%);
   position: absolute;
   background-color: var(--orange-2);
@@ -356,7 +357,96 @@ p {
   width: calc(150% + 1.3px);
   height: 650px;
 }
+.sec6 .content {
+  margin-left: auto;
+}
+.sec7 .content {
+  margin-right: auto;
+}
+.sec6 .content,
+.sec7 .content {
+  display: flex;
+  padding: 0rem 3rem;
+  gap: 3rem;
+  width: 70%;
+  position: relative;
+}
+.sec6 .content::after {
+  content: "";
+  width: 400px;
+  height: 120%;
+  z-index: -1;
+  position: absolute;
+  background-color: var(--blue-1);
+  opacity: 0.1;
+  border-radius: 90px;
+  top: -10%;
+  right: 5rem;
+}
 
+.sec7 .content::after {
+  content: "";
+  width: 400px;
+  height: 120%;
+  z-index: -1;
+  position: absolute;
+  background-color: var(--blue-1);
+  opacity: 0.1;
+  border-radius: 90px;
+  top: -10%;
+  left: 5rem;
+}
+.sec6 .content img,
+.sec7 .content img {
+  width: 15%;
+}
+.sec7 {
+  position: relative;
+}
+.sec7::after {
+  content: "";
+  width: 500px;
+  height: 500px;
+  border-radius: 50%;
+  top: 50%;
+  right: -50%;
+  z-index: -2;
+  filter: blur(200px);
+  opacity: 0.3;
+  transform: translate(-50%, -50%);
+  position: absolute;
+  background-color: var(--blue-1);
+}
+.footer {
+  width: 100vw;
+  background-color: black;
+  margin-top: 5rem;
+  color: white;
+  padding: 2rem 0;
+}
+.f-content {
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+}
+a {
+  color: white;
+}
+.f-content p {
+  opacity: 0.3;
+}
+.f-content .info {
+  display: flex;
+  justify-content: space-between;
+}
+.f-content ul {
+  display: flex;
+  gap: 3rem;
+}
+.f-content h3 {
+  cursor: pointer;
+}
 .custom-shape-divider-top-1706507705 .shape-fill {
   fill: var(--blue-1);
 }
