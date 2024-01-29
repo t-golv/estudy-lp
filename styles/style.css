@@ -87,6 +87,7 @@ p {
 .h-container .logo {
   font-size: 2rem;
   text-transform: uppercase;
+  letter-spacing: -2px;
   font-weight: bold;
 }
 .h-btn {
@@ -95,7 +96,9 @@ p {
 }
 .hero {
   display: flex;
-  margin-top: -15rem;
+  align-items: start;
+  margin-top: -5rem;
+  margin-bottom: 20rem;
   gap: 3rem;
   position: relative;
 }
@@ -120,11 +123,25 @@ p {
 .hero .sec-text button {
   font-size: 1.2rem !important;
 }
+.hero .sec-text .hero-btn1:hover {
+  background-color: var(--green-1);
+}
 .hero .sec-text .hero-btn1 {
   background-color: var(--green-2);
   color: white;
 }
+.hero .sec-text .hero-btn2:hover {
+  background-size: 200%;
+}
 .hero .sec-text .hero-btn2 {
+  background-image: linear-gradient(
+    to right,
+    rgba(255, 255, 255, 0.178) 50%,
+    transparent 50%
+  );
+  background-size: 00%;
+  background-repeat: no-repeat;
+  transition: background-size 0.5s cubic-bezier(0.075, 0.82, 0.165, 1);
   border-color: var(--green-1);
   color: var(--green-1);
 }
@@ -134,6 +151,19 @@ p {
 .sec-image img {
   width: 100%;
   transition: transform 0.5s cubic-bezier(0.075, 0.82, 0.165, 1);
+}
+.hero-arrow {
+  position: absolute;
+  transform: translate(-50%, -50%);
+  top: 140%;
+  left: 50%;
+  animation-name: pulse;
+  animation-duration: 3s;
+  animation-iteration-count: infinite;
+}
+.hero-arrow img {
+  width: 50px;
+  height: 50px;
 }
 .hero::before {
   content: "";
@@ -176,11 +206,19 @@ p {
   color: var(--green-2);
 }
 .sec2 button {
+  background-image: linear-gradient(
+    to right,
+    var(--green-2) 50%,
+    transparent 50%
+  );
+  background-size: 0%;
+  background-repeat: no-repeat;
+  transition: background-size 0.5s cubic-bezier(0.075, 0.82, 0.165, 1);
   color: var(--green-2);
   border-color: var(--green-2);
 }
 .sec2 button:hover {
-  background-color: var(--green-2);
+  background-size: 200%;
 }
 .sec2::before {
   content: "";
@@ -200,11 +238,19 @@ p {
   color: var(--blue-2);
 }
 .sec3 button {
+  background-image: linear-gradient(
+    to right,
+    var(--blue-2) 50%,
+    transparent 50%
+  );
+  background-size: 0%;
+  background-repeat: no-repeat;
+  transition: background-size 0.5s cubic-bezier(0.075, 0.82, 0.165, 1);
   color: var(--blue-2);
   border-color: var(--blue-2);
 }
 .sec3 button:hover {
-  background-color: var(--blue-2);
+  background-size: 200%;
 }
 .sec3::before {
   content: "";
@@ -225,11 +271,19 @@ p {
   color: var(--orange-2);
 }
 .sec4 button {
+  background-image: linear-gradient(
+    to right,
+    var(--orange-2) 50%,
+    transparent 50%
+  );
+  background-size: 0%;
+  background-repeat: no-repeat;
+  transition: background-size 0.5s cubic-bezier(0.075, 0.82, 0.165, 1);
   color: var(--orange-2);
   border-color: var(--orange-2);
 }
 .sec4 button:hover {
-  background-color: var(--orange-2);
+  background-size: 200%;
 }
 .sec4::before {
   content: "";
@@ -295,8 +349,19 @@ p {
   z-index: 1;
 }
 .sec5 .card-text button {
-  border-color: white;
+  background-image: linear-gradient(
+    to right,
+    rgba(255, 255, 255, 0.3) 50%,
+    transparent 50%
+  );
+  background-size: 0%;
+  background-repeat: no-repeat;
+  transition: background-size 0.5s cubic-bezier(0.075, 0.82, 0.165, 1);
   color: white;
+  border-color: white;
+}
+.sec5 .card-text button:hover {
+  background-size: 200%;
 }
 .sec5::before {
   content: "";
@@ -420,7 +485,7 @@ p {
 .footer {
   width: 100vw;
   background-color: black;
-  margin-top: 5rem;
+  margin-top: 10rem;
   color: white;
   padding: 2rem 0;
 }
@@ -450,17 +515,30 @@ a {
 .custom-shape-divider-top-1706507705 .shape-fill {
   fill: var(--blue-1);
 }
-.slideL {
+.show.slideL,
+.show .slideL {
   animation-name: slideLeft;
   animation-duration: 1s;
   animation-iteration-count: 1;
   animation-direction: alternate;
 }
-.slideR {
+.show.slideR,
+.show .slideR {
   animation-name: slideRight;
   animation-duration: 1s;
   animation-iteration-count: 1;
   animation-direction: alternate;
+}
+.hidden {
+  opacity: 0;
+  transform: scale(90%);
+  filter: blur(10px) hue-rotate(30deg);
+  transition: opacity 0.5s ease, filter 0.4s ease, transform 0.5s ease;
+}
+.show {
+  opacity: 1;
+  filter: blur(0px) hue-rotate(0deg);
+  transform: scale(100%);
 }
 @keyframes slideLeft {
   from {
@@ -482,3 +560,19 @@ a {
     opacity: 1;
   }
 }
+@keyframes pulse {
+  from {
+    opacity: 0;
+    transform: translateY(calc(-50% + (-20px)));
+  }
+  to {
+    transform: translateY(-50%);
+    opacity: 0.5;
+  }
+}
+/* 
+@media (prefers-reduced-motion) {
+  .hidden {
+    transition: none;
+  }
+} */
