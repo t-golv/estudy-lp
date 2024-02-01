@@ -610,12 +610,12 @@ a {
     width: calc(150% + 1.3px);
   }
 }
-/* 
+
 @media (prefers-reduced-motion) {
   .hidden {
     transition: none;
   }
-} */
+} 
 @media (max-width: 700px) {
   .hero .sec-image {
     display: none;
